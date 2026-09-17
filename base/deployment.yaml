@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bobpick-app
+  namespace: bobpick
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: bobpick-app
+  template:
+    metadata:
+      labels:
+        app: bobpick-app
+    spec:
+      serviceAccountName: bobpick-app-sa
+      containers:
+        - name: bobpick-app
+          image: 370201257485.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app:877c551
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: bobpick-app-config
+            - secretRef:
+                name: bobpick-app-secret
+          resources:
+            requests:
+              cpu: 250m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /healthz/
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthz/
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 10

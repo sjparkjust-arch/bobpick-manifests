@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bobpick-app-config
+  namespace: bobpick
+data:
+  DEBUG: "False"
+  ALLOWED_HOSTS: "*"
+  DB_HOST: "dev-mysql-db.cpq2muoy8jbp.ap-northeast-2.rds.amazonaws.com"
+  DB_PORT: "3306"
+  REDIS_URL: "redis://dev-redis-cache.x2dnv4.0001.apn2.cache.amazonaws.com:6379/0"
+  AWS_STORAGE_BUCKET_NAME: "bobpick-main-s3-3rd"
+  AWS_S3_REGION_NAME: "ap-northeast-2"
