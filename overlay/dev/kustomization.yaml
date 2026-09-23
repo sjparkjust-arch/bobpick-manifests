@@ -4,7 +4,4 @@ kind: Kustomization
 namespace: bobpick
 
 resources:
-  - deployment.yaml
-  - service.yaml
-  - configmap.yaml
-  - ingress.yaml
+  - ../../base

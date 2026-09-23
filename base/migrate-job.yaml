@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bobpick-migrate
+  namespace: bobpick
+  annotations:
+    description: "배포 전 1회 실행 — DB 마이그레이션(migrate) + 정적 파일 S3 업로드(collectstatic)"
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      serviceAccountName: bobpick-app-sa
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: 370201257485.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app:bc93f03
+          command:
+            - sh
+            - -c
+            - "python manage.py migrate && python manage.py collectstatic --noinput"
+          envFrom:
+            - configMapRef:
+                name: bobpick-app-config
+            - secretRef:
+                name: bobpick-app-secret

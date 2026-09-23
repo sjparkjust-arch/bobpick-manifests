@@ -3,10 +3,14 @@ kind: Service
 metadata:
   name: bobpick-app
   namespace: bobpick
+  labels:
+    app: bobpick-app          # 👈 [필수 1] 메타데이터 라벨에 추가!
 spec:
   type: ClusterIP
   selector:
     app: bobpick-app
   ports:
-    - port: 80
-      targetPort: 8000
+  - name: http                # 👈 [필수 2] 포트에 이름(http) 추가!
+    port: 80
+    targetPort: 8000
+    protocol: TCP
