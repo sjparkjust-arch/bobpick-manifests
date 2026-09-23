@@ -4,7 +4,7 @@ metadata:
   name: bobpick-app
   namespace: bobpick
 spec:
-  replicas: 2
+  replicas: 3
   strategy:
     type: RollingUpdate
     rollingUpdate:
