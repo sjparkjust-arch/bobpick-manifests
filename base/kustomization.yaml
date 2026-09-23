@@ -8,6 +8,7 @@ resources:
   - service.yaml
   - configmap.yaml
   - ingress.yaml
+  - hpa.yaml
 
 images:
   - name: 370201257485.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app
