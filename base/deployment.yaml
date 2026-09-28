@@ -22,7 +22,7 @@ spec:
       serviceAccountName: bobpick-app-sa
       containers:
         - name: bobpick-app
-          image: 369904859006.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app:bc93f03
+          image: bobpick-app-image:placeholder
           ports:
             - containerPort: 8000
           envFrom:

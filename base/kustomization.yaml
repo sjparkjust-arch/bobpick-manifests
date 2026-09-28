@@ -11,5 +11,6 @@ resources:
 - hpa.yaml
 
 images:
-  - name: 369904859006.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app
+  - name: bobpick-app-image
+    newName: 369904859006.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app
     newTag: 3821a93

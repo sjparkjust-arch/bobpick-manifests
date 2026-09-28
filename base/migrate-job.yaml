@@ -13,7 +13,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: migrate
-          image: 369904859006.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app:bc93f03
+          image: bobpick-app-image:placeholder
           command:
             - sh
             - -c
