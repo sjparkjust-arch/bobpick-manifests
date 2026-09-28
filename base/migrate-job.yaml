@@ -4,7 +4,7 @@ metadata:
   name: bobpick-migrate
   namespace: bobpick
   annotations:
-    description: "배포 전 1회 실행 — DB 마이그레이션(migrate) + 메뉴 마스터데이터 시드(seed_data) + 정적 파일 S3 업로드(collectstatic)"
+    description: "배포 전 1회 실행 — DB 마이그레이션(migrate) + 정적 파일 S3 업로드(collectstatic)"
 spec:
   backoffLimit: 2
   template:
@@ -17,7 +17,7 @@ spec:
           command:
             - sh
             - -c
-            - "python manage.py migrate && python manage.py seed_data && python manage.py collectstatic --noinput"
+            - "python manage.py migrate && python manage.py collectstatic --noinput"
           envFrom:
             - configMapRef:
                 name: bobpick-app-config
