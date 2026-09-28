@@ -13,7 +13,7 @@ spec:
       restartPolicy: Never
       containers:
         - name: migrate
-          image: 370201257485.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app:bc93f03
+          image: 369904859006.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app:bc93f03
           command:
             - sh
             - -c
