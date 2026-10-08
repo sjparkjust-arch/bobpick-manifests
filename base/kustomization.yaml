@@ -13,5 +13,5 @@ resources:
 
 images:
 - name: bobpick-app-image
-  newName: 369904859006.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app
+  newName: <ACCOUNT_ID>.dkr.ecr.ap-northeast-2.amazonaws.com/bobpick/app
   newTag: 1513df3
